@@ -2,6 +2,12 @@ package org.Clase1;
 
 import java.util.Scanner; // Sirve para que el usuario escriba
 
+/*
+Realiza un método main que implemente un objeto.
+Cuenta de ahorros y llame a los métodos correspondientes y de igual manera un objeto cuenta corriente todos los datos
+deben ser ingresados por teclado y al elegir cada una de las opciones debe implementarse un menú.
+*/
+
 public class Main { // Clase principal donde inicia el programa
     public static void main(String[] args) { // Método main: punto de entrada de la aplicación
         Scanner scaneao = new Scanner(System.in); // Creamos un Scanner llamado 'scaneao' para leer datos del usuario

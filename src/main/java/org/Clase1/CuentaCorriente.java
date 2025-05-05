@@ -1,9 +1,7 @@
 package org.Clase1;
 
-// CuentaCorriente hereda de CuentaBancaria
 public class CuentaCorriente extends CuentaBancaria {
-    // Atributo nuevo: sobregiro permitido (inicia en 0)
-    private float sobregiro = 0;
+    private float sobregiro = 0;// Posee un atributo de sobregiro, el cual se inicializa en 0.
 
     // Constructor que recibe saldo inicial y tasa anual
     public CuentaCorriente(float saldoInicial, float tasaAnual) {
@@ -12,6 +10,9 @@ public class CuentaCorriente extends CuentaBancaria {
     }
 
     // Método sobrescrito para retirar dinero
+    //Retirar: Se retira el dinero de la cuenta actualizando su saldo.
+    //Se puede retirar dinero superior al saldo.
+    //El dinero que se debe queda como sobregiro.
     @Override
     public void retirar(float cantidad) {
         // Si hay suficiente saldo, se retira normalmente
@@ -27,6 +28,7 @@ public class CuentaCorriente extends CuentaBancaria {
     }
 
     // Método sobrescrito para depositar dinero
+    // Depositar: invoca al método heredado. Si hay un sobregiro, la cantidad consignada reduce el sobregiro.
     @Override
     public void depositar(float cantidad) {
         // Si hay sobregiro, se debe cubrir primero
@@ -48,6 +50,7 @@ public class CuentaCorriente extends CuentaBancaria {
     }
 
     // Método sobrescrito para generar extracto mensual
+    // Extracto mensual: invoca al método heredado
     @Override
     public void extractoMensual() {
         // Usa la lógica general del extracto de la clase padre
@@ -55,6 +58,12 @@ public class CuentaCorriente extends CuentaBancaria {
     }
 
     // Método exclusivo para imprimir información completa
+
+    /*
+    Un nuevo método imprimir que muestra en pantalla el saldo de la cuneta,
+    la comisión mensual, el número de transacciones realizadas (suma de cantidad de consignaciones y retiros)
+    y el valor de sobregiro.
+     */
     public void imprimir() {
         System.out.println("Saldo: " + saldo); // Muestra el saldo
         System.out.println("Comisión mensual: " + comisionMensual); // Muestra comisión

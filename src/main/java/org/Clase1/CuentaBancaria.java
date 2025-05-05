@@ -22,6 +22,7 @@ public class CuentaBancaria {
         this.tasaAnual= tasaAnual;
     }
     //Método para poder hacer el depósito
+    //Depositar una cantidad de dinero en la cuenta actualizando su saldo.
     //Verificación que no se pueda depositar 0 o números negativos
     public void depositar(float cantidad) {
         if (cantidad <= 0) { //Valida primero la cantidad
@@ -33,6 +34,8 @@ public class CuentaBancaria {
     }
 
     //Método para poder retirar dinero del Banco
+    //Retirar una cantidad de dinero de la cuenta actualizando el saldo
+    //El valor a retirar no debe pasar del saldo que se tiene en la cuenta.
     public void retirar(float cantidad) {
         if (cantidad <= 0) {  //Verificamos si la cantidad es menor a 0 o 0
             System.out.println("No puedes retirar este tipo de productos");
@@ -47,13 +50,15 @@ public class CuentaBancaria {
     }
 
     //Método para calcular el porcentaje de interés mensual y actualizar el saldo
+    //Calcular el interés mensual de la cuenta, y actualiza el saldo correspondiente.
     public void calcularInteresMensual() {
-        float tasaMensual = tasaAnual / 12; //Dividir para 12 porque quiero ver mensual
-        float interesMensual = saldo * tasaMensual; //Creamos el interés mensual haciendo la operación
+        float tasaMensual = tasaAnual / 12; //Dividir para 12 porque quiero ver la tasa mensual
+        float interesMensual = saldo * tasaMensual; //Creamos el interés mensual en % haciendo la operación
         saldo = saldo + interesMensual; //Añadimos el interés al saldo
     }
 
-
+    //Extracto mensual: Actualizar el saldo restándole la comisión mensual
+    // Calcular el interés mensual correspondiente (invocando al método anterior).
     public void extractoMensual() {
         saldo = saldo - comisionMensual;
         calcularInteresMensual();
